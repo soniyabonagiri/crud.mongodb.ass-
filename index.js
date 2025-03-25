@@ -2,6 +2,7 @@ import express from 'express';
 const app=express();
 app.use(express.json());
 import moongose from 'mongoose';
+const port=process.env.PORT;
 // const moongose=require('moongose');
 moongose.connect('mongodb+srv://mongodb-crud:mongodb-crud@cluster0.d8miu.mongodb.net/databasecrud?retryWrites=true&w=majority&appName=Cluster0').then(()=>{
     console.log('db connected')
@@ -70,7 +71,7 @@ app.patch('/updatedata',async(req,res)=>{
 
 
 
-app.listen(4007,()=>{
+app.listen(port,()=>{
     console.log("server started")
 })
 
